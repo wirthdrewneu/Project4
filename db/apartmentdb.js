@@ -24,7 +24,7 @@ function myDB() {
 		const db = client.db("apartments");
 		const jobcalendar = db.collection("johnsapartment");
 		const query = {};
-		console.log(jobcalendar.find(query).toArray());
+		console.log(" Inside Job Calendar Query ", jobcalendar.find({}).toArray());
 		return jobcalendar.find(query).toArray();
 	};
 
