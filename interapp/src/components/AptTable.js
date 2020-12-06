@@ -28,8 +28,8 @@ fetchapt();
  const in2 = (page * 10) + 10;
 console.log( "ins ", in1, in2, page);
 const test2 = props.apartments.filter(prices =>{
-return (prices.price !== null && prices.price.replace(",","").includes(search)) || (prices.titletextonly!== null && prices.titletextonly.includes(search)) ||
-(prices.housing !== null && prices.housing.includes(search)) || (prices.mapaddress !== null && prices.mapaddress.includes(search)) ;}
+return (prices.price !== null && prices.price.replace(",","").includes(search)) || (prices.titletextonly!== null && prices.titletextonly.toLowerCase().includes(search.toLowerCase())) ||
+(prices.housing !== null && prices.housing.toLowerCase().includes(search.toLowerCase())) || (prices.mapaddress !== null && prices.mapaddress.toLowerCase().includes(search.toLowerCase())) ;}
  )
   return (
     <main className="container-fluid full-height main-background">
@@ -71,7 +71,7 @@ return (prices.price !== null && prices.price.replace(",","").includes(search)) 
   </tbody>
 
 </table>
-<div><div style={{float: "left"}}>
+<div>{search}<div style={{float: "left"}}>
 <button onClick={() => setpage(page - 1 < 0 ? 0 : page - 1)}> Prev </button>
 <button onClick={() => setpage(page + 1)}>Next</button>
 </div>
