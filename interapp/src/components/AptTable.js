@@ -1,18 +1,36 @@
-import React, { useState, Component } from "react";
+import React, { useEffect ,useState, Component } from "react";
 import "../css/designs.css"
-/*import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'; */
-import BootstrapTable from 'react-bootstrap-table-next';
+
 
 
 function AptTable(props) {
  const [aptdata, setapt] = useState([]);
+  const [refresher, setref] = useState([]);
+const [search, setsearch] = useState("");
   console.log("Get apartment props", props.apartments);
   const test = props.apartments;
+
+
+const fetchapt = async () => {
+    setapt(props.apartments)
+    console.log("Got apt Data",aptdata);
+  };
+ 
+
+ useEffect(() =>{
+
+fetchapt();
+}, [refresher]
+  )
+
  const [page, setpage] = useState(0);
  const in1 = page * 10 ;
  const in2 = (page * 10) + 10;
 console.log( "ins ", in1, in2, page);
-
+const test2 = props.apartments.filter(prices =>{
+return (prices.price !== null && prices.price.replace(",","").includes(search)) || (prices.titletextonly!== null && prices.titletextonly.includes(search)) ||
+(prices.housing !== null && prices.housing.includes(search)) || (prices.mapaddress !== null && prices.mapaddress.includes(search)) ;}
+ )
   return (
     <main className="container-fluid full-height main-background">
       <div className="container" id = "maincontent"> 
@@ -21,17 +39,17 @@ console.log( "ins ", in1, in2, page);
             <div className="card-header">
               <h2 className="my-0 font-weight-normal">Apartments</h2>
               </div>
-
+ 
  <table id="dataTable" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%" height = "800px">
   <thead>
     <tr>
-      <th class="th-sm">Name
+      <th class="th-sm">Title
 
       </th>
-      <th class="th-sm">Position
+      <th class="th-sm">Rooms
 
       </th>
-      <th class="th-sm">Start date
+      <th class="th-sm">Address
 
       </th>
       <th class="th-sm">Price
@@ -39,8 +57,9 @@ console.log( "ins ", in1, in2, page);
       </th>
     </tr>
   </thead>
+
   <tbody>
-    { test.slice(in1,in2).map (post => 
+    { test2.slice(in1,in2).map (post => 
                     <tr>
                     <td>{post.titletextonly}</td>
                     <td>{post.housing}</td>
@@ -52,10 +71,14 @@ console.log( "ins ", in1, in2, page);
   </tbody>
 
 </table>
-<div>
-<button onClick={() => setpage(page - 1)}> Prev </button>
+<div><div style={{float: "left"}}>
+<button onClick={() => setpage(page - 1 < 0 ? 0 : page - 1)}> Prev </button>
 <button onClick={() => setpage(page + 1)}>Next</button>
-         </div>
+</div>
+<div style={{float: "right"}}>
+<label>Search:</label> 
+<input type="text" id="myInput" onChange= {s => setsearch(s.target.value)} placeholder="Search Here"/>
+         </div> </div>
           </div>
      
       </div>
