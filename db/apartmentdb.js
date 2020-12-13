@@ -18,7 +18,7 @@ function myDB() {
 	 const uri = process.env.MONGO_URL || "mongodb://localhost:27017";/*process.env.MONGO_URL || localhost:27017;*/
 	// const uri = "mongodb://harman:pass@cluster0.zk2xm.mongodb.net/test";
 
-	myDB.getCaldata = async () => {
+	myDB.getAPTdata = async () => {
 		const client = new MongoClient(uri);
 		await client.connect();
 		const db = client.db("apartments");
@@ -40,25 +40,6 @@ function myDB() {
 	};
 
 
-	myDB.getAppDetails = async () => {
-		const client = new MongoClient(uri);
-		await client.connect();
-		const db = client.db("jobapps");
-		const jobposts = db.collection("jobposts");
-		const query = {};
-		console.log(jobposts.find(query).toArray());
-		return jobposts.find(query).sort({ _id: -1 }).toArray();
-	};
-
-	myDB.createAppPost = async (post) => {
-		console.log("created post:", post);
-		const client = new MongoClient(uri);
-		await client.connect();
-		const db = client.db("jobapps");
-		const jobposts = db.collection("jobposts");
-		return await jobposts.insert(post);
-	};
-
 	myDB.createPL = async (post) => {
 		console.log("created post:", post);
 		const client = new MongoClient(uri);
@@ -68,114 +49,49 @@ function myDB() {
 		return await jobposts.insert(post);
 	};
 
-
-
-	myDB.editAppPost = async (post) => {
-		console.log("created post:", post);
-		const findByID = post._id;
-		delete post._id;
+		myDB.createAppEvent = async (post) => {
+		console.log("Connected 1");
 		const client = new MongoClient(uri);
 		await client.connect();
-		const db = client.db("jobapps");
-		const jobposts = db.collection("jobposts");
-		let newValues = {
-			$set: { 
-				Company: post.Company,
-				Role: post.Role,
-				Type: post.Type,
-				RecruiterInfo: post.RecruiterInfo,
-				DateApplied: post.DateApplied,
-				Stage: post.Stage,
-				StageDate: post.StageDate,
-				JobDescription: post.JobDescription
-			},
-		};
-		var myquery = { _id: ObjectId(findByID)};
-		return await jobposts.updateOne(myquery, newValues);
-	};
+		console.log("Connected 2");
+		const db = client.db("apartments");
+		const jobposts = db.collection("perslist");
+		console.log("Connected 3", post);
 
-	myDB.createAppEvent = async (post) => {
-		const client = new MongoClient(uri);
-		await client.connect();
-		const db = client.db("jobapps");
-		const jobposts = db.collection("jobcalendar");
 		return await jobposts.insert(post);
 	};
 
 	myDB.delAppEvent = async (post) => {
+		console.log("in delete function");
 		console.log("Post_id", post.title);
 		const client = new MongoClient(uri);
 		await client.connect();
 		const db = client.db("apartments");
 		const jobposts = db.collection("perslist");
+		console.log("connected delete", post.title);
 		var myquery = { title: post.title };
 		console.log("jobpostquery", jobposts.find(myquery));
 		return await jobposts.deleteOne(myquery);
 	};
 
-	myDB.delApplication = async (post) => {
-		console.log("Post_id", post._id, post.Company);
-		const client = new MongoClient(uri);
-		await client.connect();
-		const db = client.db("jobapps");
-		const jobposts = db.collection("jobposts");
-		var myquery = { _id: ObjectId(post._id) };
-		// console.log( "jobpostquery", jobposts.find(myquery));
-		let dbResponse = {
-			success: true,
-			message: "Record Deleted Successfully",
-		};
-		try {
-			await jobposts.deleteOne(myquery);
-		} catch (error) {
-			console.log(error);
-			dbResponse = {
-				success: false,
-				message: error,
-			};
-			return dbResponse;
-		}
-		return dbResponse;
-	};
 
 	myDB.updateAppEvent = async (post) => {
-		console.log("Post_id", post.title);
+		console.log("Post_id", post);
 		const client = new MongoClient(uri);
 		await client.connect();
-		const db = client.db("jobapps");
-		const jobposts = db.collection("jobcalendar");
+		const db = client.db("apartments");
+		const jobposts = db.collection("perslist");
 		var myquery = { title: post.title };
 		var newvalues = {
-			$set: { title: post.title, start: post.start, end: post.end },
+			$set: { title: post.title, notes: post.notes},
 		};
-		console.log("jobpostquery", jobposts.find(myquery));
+		/*console.log("jobpostquery", jobposts.find(myquery));*/
 		return await jobposts.updateOne(myquery, newvalues);
 	};
 
-	//   dbo.collection("customers").updateOne(myquery, newvalues, function(err, res) {
-
-	/*return [
-			{
-				Stage: "Online Assesment",
-				Company: "Google",
-				Date: new Date(),
-			},
-			{
-				Stage: "1st Interview",
-				Company: "Google",
-				Date: new Date(),
-			},
-			{
-				Stage: "1st Interview",
-				Company: "Google",
-				Date: new Date(),
-			},
-		];
-	};*/
 
 	return myDB;
 }
 
 module.exports = myDB();
 
-// Replace the uri string with your MongoDB deployment's connection string.

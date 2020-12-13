@@ -5,7 +5,7 @@ const myDB = require("../db/apartmentdb.js");
 
 /* GET home page. */
 router.get("/calendar", async (req, res, next) => {
-	const caldata = await myDB.getCaldata();
+	const caldata = await myDB.getAPTdata();
 	console.log(next);
 	res.json(caldata);
 });
@@ -27,9 +27,16 @@ router.get("/perslist", async (req, res, next) => {
 router.post("/createPL", async (req, res) => {
 	const post = req.body;
 	await myDB.createPL(post);
+
 	res.send({message: "Event Created"});
 });
 
+router.post("/createappevent", async (req, res) => {
+	const post = req.body;
+	await myDB.createAppEvent(post);
+	res.redirect("/");
+	res.send({message: "Event Created"});
+});
 
 router.get("/applications", async (req, res, next) => {
 	const appData = await myDB.getAppDetails();
@@ -51,28 +58,18 @@ router.post("/updateApplication", async (req, res) => {
 	res.send({message: "Application Edited"});
 });
 
-router.post("/createappevent", async (req, res) => {
-	const post = req.body;
-	await myDB.createAppEvent(post);
-	res.redirect("/");
-	res.send({message: "Event Created"});
-});
+
 
 
 router.post("/delappevent", async (req, res) => {
+	console.log("Inside Router");
 	const post = req.body;
 	await myDB.delAppEvent(post);
-	res.redirect("/");
+	res.redirect("/perslist");
 	res.send({message: "Event Deleted"});
 });
 
 
-router.post("/delappevent", async (req, res) => {
-	const post = req.body;
-	await myDB.delAppEvent(post);
-	res.redirect("/");
-	res.send({message: "Event Deleted"});
-});
 
 router.post("/delAppPost", async (req, res) => {
 	const post = req.body;
@@ -84,7 +81,7 @@ router.post("/delAppPost", async (req, res) => {
 router.post("/updateappevent", async (req, res) => {
 	const post = req.body;
 	await myDB.updateAppEvent(post);
-	res.redirect("/");
+	res.redirect("/perslist");
 	res.send({message: "Event Updated"});
 });
 

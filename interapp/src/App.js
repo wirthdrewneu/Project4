@@ -3,10 +3,7 @@ import './App.css';
 import NavBar from "./components/NavBar.js";
 import AptTable from "./components/AptTable.js";
 // import History from "./History.js";
-import ApplicationsTable from "./components/ApplicationsTable";
-import AppForm from "./components/AppForm.js";
 import AptCloud from './components/AptCloud.js';
-import CardsList from "./components/CardsList.js";
 import PersCard from './components/PersCard.js';
 
 
@@ -43,27 +40,13 @@ function App() {
     <NavBar></NavBar>
     <Router>
         <Switch>
-          <Route path="/appliedHistory">
-
-            <ApplicationsTable />
-          </Route>
           <Route path="/perslist">
-        
-        
-                 
-      
-
             <PersCard></PersCard>
-  
-
-
-
-
-
           </Route>
           <Route path="/">
              <AptCloud apartments = {apartments}/> 
             <AptTable apartments = {apartments}/>
+        
           </Route>
         </Switch>
     </Router>

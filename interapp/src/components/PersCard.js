@@ -1,5 +1,5 @@
 
-import "../css/form.css";
+import "../css/designs.css";
 import React, { useEffect ,useState, Component } from "react";
 
 function PersCard(){
@@ -32,7 +32,9 @@ console.log("apart", apart);
             <div className="card-header">
               <h2 className="my-0 font-weight-normal">{post.title}</h2>
             </div>
+
             <div className="card-body">
+            <form action="/updateappevent" method="Post">
               <div className="form-group row">
               <h3> Address : {post.address}  </h3>
               </div>
@@ -49,11 +51,12 @@ console.log("apart", apart);
 
 
              
-              <form action="/updateappevent" method="Post">
+              
               <div className="form-group row">
                 <label for="appliedDate4" className="col-4 control-label" style={{"textAlign": "left"}}>Notes</label>
                 <div className="col-12">
-                  <textarea className="form-control"  id="appliedDate4" name="end"  />
+                  <input className="form-control" id="idtitle" name="title" type = "hidden" value = {post.title}/>
+                  <textarea className="form-control"  id="appliedDate4" name="notes"  />
                 </div>
               </div>
               <div class="padding-std">
@@ -73,7 +76,7 @@ console.log("apart", apart);
                         },
                         redirect: 'follow', // manual, *follow, error
                         referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-                        body: JSON.stringify({title : apart.title}) // body data type must match "Content-Type" header
+                        body: JSON.stringify({title : post.title.slice(0,35)}) // body data type must match "Content-Type" header
                       });
                     }
                   }

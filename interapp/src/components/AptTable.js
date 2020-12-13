@@ -107,8 +107,20 @@ const size = [900, 300];
                         },
                         redirect: 'follow', // manual, *follow, error
                         referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-                        body: JSON.stringify({Company :post.titletextonly, Role : post.titletextonly, Type : post.titletextonly, Stage : post.titletextonly}) // body data type must match "Content-Type" header
+                        body: JSON.stringify({title: post.titletextonly.slice(0,35),
+                         rooms : post.housing.slice(0,20),
+                        address :  post.mapaddress.slice(0,20),
+                         price : post.price,
+                         notes : "" 
+
+
+                       }) // body data type must match "Content-Type" header
                       });
+
+
+
+
+
                     }
                   }
                   className="btn btn-lg btn-block btn-outline-danger">

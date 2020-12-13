@@ -53,10 +53,9 @@ for (var key of Object.keys(test)) {
     for (i = 0; i < words.length; i++) {
     words[i]  = words[i].replace(/[^A-Za-z]+/g, '')
  if(words[i]){
-console.log(wordcloudobj.find(texto => texto.text === words[i].toLowerCase()));
+/*console.log(wordcloudobj.find(texto => texto.text === words[i].toLowerCase()));*/
 
 if(wordcloudobj.find(texto => texto.text === words[i].toLowerCase()) === undefined ){
-console.log("in if", words[i].toLowerCase()); 
 if  (words[i].length >2){
 let texts = {
  text: words[i].toLowerCase(),
@@ -70,12 +69,11 @@ wordcloudobj.push(texts);
 
 else{
 
-   console.log("in else"); 
+/*   console.log("in else"); */
 for (var j = 0; j < wordcloudobj.length; j++) {
    if(wordcloudobj[j].text === words[i]){
     wordcloudobj[j].value =  wordcloudobj[j].value +10;   
-
-   console.log(wordcloudobj[j].text, wordcloudobj[j].value); 
+/*   console.log(wordcloudobj[j].text, wordcloudobj[j].value); */
 }
   }
 }
