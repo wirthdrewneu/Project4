@@ -28,7 +28,7 @@ console.log("apart", apart);
 
      { apart.map (post =>         
 
-          <div className="card mb-3 shadow-sm  mt-3">
+          <div className="card mb-3 shadow-sm w-50" >
             <div className="card-header">
               <h2 className="my-0 font-weight-normal">{post.title}</h2>
             </div>
@@ -60,7 +60,7 @@ console.log("apart", apart);
                 </div>
               </div>
               <div class="padding-std">
-                <button type="submit" className="btn btn-lg btn-block btn-outline-primary">Update</button>
+                <button type="submit" className="btn btn-lg btn-block btn-outline-primary">Add Note</button>
               </div>
             </form>
         
@@ -69,7 +69,7 @@ console.log("apart", apart);
                 <button
                   type="submit"
                   onClick = {async (evt) => {
-                        const response = await fetch("/delappevent", {
+                        const response = await fetch("/delfollow", {
                                 method: 'POST', // *GET, POST, PUT, DELETE, etc.
                         headers: {
                           'Content-Type': 'application/json'
@@ -81,7 +81,7 @@ console.log("apart", apart);
                     }
                   }
                   className="btn btn-lg btn-block btn-outline-danger">
-                  Delete
+                  Remove
                 </button>
               </div>
             </form>

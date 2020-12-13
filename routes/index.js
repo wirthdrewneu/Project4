@@ -31,9 +31,9 @@ router.post("/createPL", async (req, res) => {
 	res.send({message: "Event Created"});
 });
 
-router.post("/createappevent", async (req, res) => {
+router.post("/followpost", async (req, res) => {
 	const post = req.body;
-	await myDB.createAppEvent(post);
+	await myDB.followpost(post);
 	res.redirect("/");
 	res.send({message: "Event Created"});
 });
@@ -61,10 +61,10 @@ router.post("/updateApplication", async (req, res) => {
 
 
 
-router.post("/delappevent", async (req, res) => {
+router.post("/delfollow", async (req, res) => {
 	console.log("Inside Router");
 	const post = req.body;
-	await myDB.delAppEvent(post);
+	await myDB.delfollow(post);
 	res.redirect("/perslist");
 	res.send({message: "Event Deleted"});
 });
@@ -78,9 +78,9 @@ router.post("/delAppPost", async (req, res) => {
 });
 
 
-router.post("/updateappevent", async (req, res) => {
+router.post("/updateNotes", async (req, res) => {
 	const post = req.body;
-	await myDB.updateAppEvent(post);
+	await myDB.updateNotes(post);
 	res.redirect("/perslist");
 	res.send({message: "Event Updated"});
 });

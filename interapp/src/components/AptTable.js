@@ -100,7 +100,7 @@ const size = [900, 300];
                 <button
                   type="submit"
                   onClick = {async (evt) => {
-                        const response = await fetch("/createappevent", {
+                        const response = await fetch("/followpost", {
                                 method: 'POST', // *GET, POST, PUT, DELETE, etc.
                         headers: {
                           'Content-Type': 'application/json'
