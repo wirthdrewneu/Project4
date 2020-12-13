@@ -1,7 +1,7 @@
 import React, { useEffect ,useState, Component } from "react";
 import "../css/designs.css"
 import ReactWordcloud from 'react-wordcloud';
-
+import AptCloud from './AptCloud.js';
 
 
 function AptTable(props) {
@@ -41,52 +41,6 @@ var wordcloudobj = [{
 }];
 
 
-
-
-
-
-for (var key of Object.keys(test)) {
-  if (test[key].titletextonly){ 
-  let words = test[key].titletextonly.split(" ");
-  var i;
-
-    for (i = 0; i < words.length; i++) {
-    words[i]  = words[i].replace(/[^A-Za-z]+/g, '')
- if(words[i]){
-console.log(wordcloudobj.find(texto => texto.text === words[i].toLowerCase()));
-
-if(wordcloudobj.find(texto => texto.text === words[i].toLowerCase()) === undefined ){
-console.log("in if", words[i].toLowerCase()); 
-if  (words[i].length >2){
-let texts = {
- text: words[i].toLowerCase(),
- value: 100
-}
-
-wordcloudobj.push(texts);
-/*console.log(words[i].toLowerCase());*/ 
-}
-}
-
-else{
-
-   console.log("in else"); 
-for (var j = 0; j < wordcloudobj.length; j++) {
-   if(wordcloudobj[j].text === words[i]){
-    wordcloudobj[j].value =  wordcloudobj[j].value +10;   
-
-   console.log(wordcloudobj[j].text, wordcloudobj[j].value); 
-}
-  }
-}
-}
-}
-
-
-  }
-  /*  console.log(key + " -> " + test[key].titletextonly)*/
-}
-
  const [page, setpage] = useState(0);
  const in1 = page * 6 ;
  const in2 = (page * 6) + 6;
@@ -94,7 +48,7 @@ console.log( "ins ", in1, in2, page);
 
 const test2 = props.apartments.filter(prices =>{
 return (prices.price !== null && prices.price.replace(",","").includes(search)) || (prices.titletextonly!== null && prices.titletextonly.toLowerCase().includes(search.toLowerCase())) ||
-(prices.housing !== null && prices.housing.toLowerCase().includes(search.toLowerCase())) || (prices.mapaddress !== null && prices.mapaddress.toLowerCase().includes(search.toLowerCase())) ;}
+(prices.housing !== null && prices.housing.toLowerCase().includes(search.toLowerCase())) ;}
  )
 
 const size = [900, 300];
@@ -102,17 +56,10 @@ const size = [900, 300];
 
   return (
     <main className="container-fluid full-height main-background">
-       <div className="container" id = "maincontent"> 
-        <div className="card-deck mb-3 text-center">
-          <div className="card mb-6 shadow-sm">
-      <ReactWordcloud 
-      words={wordcloudobj} 
-      size = {size}
-      options = {options}
-      />
-</div>
-</div>
-</div>      
+    
+
+
+
       <div className="container" id = "maincontent"> 
         <div className="card-deck mb-3 text-center">
           <div className="card mb-6 shadow-sm">
@@ -129,11 +76,11 @@ const size = [900, 300];
       <th class="th-sm">Rooms
 
       </th>
-      <th class="th-sm">Address
+      <th class="th-sm">Price
 
       </th>
       <th class="th-sm">
-            Price
+            Track Apartment
          
 
       </th>
@@ -145,8 +92,30 @@ const size = [900, 300];
                     <tr>
                     <td>{post.titletextonly}</td>
                     <td>{post.housing}</td>
-                    <td>{post.mapaddress}</td>
                     <td>{post.price}</td>
+                    <td>
+
+                    <form>
+              <div class="padding-std">
+                <button
+                  type="submit"
+                  onClick = {async (evt) => {
+                        const response = await fetch("/createappevent", {
+                                method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                        headers: {
+                          'Content-Type': 'application/json'
+                        },
+                        redirect: 'follow', // manual, *follow, error
+                        referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+                        body: JSON.stringify({Company :post.titletextonly, Role :post.housing, Type : post.mapaddress, Stage :post.price}) // body data type must match "Content-Type" header
+                      });
+                    }
+                  }
+                  className="btn btn-lg btn-block btn-outline-danger">
+                  Add
+                </button>
+              </div>
+            </form></td>
                     </tr>  
                 )}
   

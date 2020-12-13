@@ -5,6 +5,10 @@ import AptTable from "./components/AptTable.js";
 // import History from "./History.js";
 import ApplicationsTable from "./components/ApplicationsTable";
 import AppForm from "./components/AppForm.js";
+import AptCloud from './components/AptCloud.js';
+import CardsList from "./components/CardsList.js";
+import PersCard from './components/PersCard.js';
+
 
 import {
   BrowserRouter as Router,
@@ -40,12 +44,25 @@ function App() {
     <Router>
         <Switch>
           <Route path="/appliedHistory">
+
             <ApplicationsTable />
           </Route>
-          <Route path="/newApplication">
-            <AppForm edit={false} itemDetails={null} />
+          <Route path="/perslist">
+        
+        
+                 
+      
+
+            <PersCard></PersCard>
+  
+
+
+
+
+
           </Route>
           <Route path="/">
+             <AptCloud apartments = {apartments}/> 
             <AptTable apartments = {apartments}/>
           </Route>
         </Switch>

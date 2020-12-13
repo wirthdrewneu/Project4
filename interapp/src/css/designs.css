@@ -5,7 +5,7 @@
   .like {
     margin-right: 10px;
   }
-
+.card {display:inline-block;}
 
 .nav-header {
 	background-color: #13B086

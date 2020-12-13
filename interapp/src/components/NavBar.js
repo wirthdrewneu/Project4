@@ -15,12 +15,10 @@ function NavBar() {
 					<a className="p-2 text-dark" href="/">
 						Apartments
 					</a>
-					<a className="p-2 text-dark" href="/newApplication">
+					<a className="p-2 text-dark" href="/perslist">
 						Your List
 					</a>
-					<a className="p-2 text-dark" href="/appliedHistory">
-						HistoryDelete
-					</a>
+
 					
 				</nav>
 			</div>
