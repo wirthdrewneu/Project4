@@ -34,7 +34,7 @@ console.log("apart", apart);
             </div>
 
             <div className="card-body">
-            <form action="/updateappevent" method="Post">
+            <form action="/updateNotes" method="Post">
               <div className="form-group row">
               <h3> Address : {post.address}  </h3>
               </div>
