@@ -28,6 +28,18 @@ function myDB() {
 		return jobcalendar.find(query).toArray();
 	};
 
+
+	myDB.getaptandata = async () => {
+		const client = new MongoClient(uri);
+		await client.connect();
+		const db = client.db("apartments");
+		const jobcalendar = db.collection("perslist");
+		const query = {};
+		console.log(" Inside Job Calendar Query ", jobcalendar.find({}).toArray());
+		return jobcalendar.find(query).toArray();
+	};
+
+
 	myDB.getAppDetails = async () => {
 		const client = new MongoClient(uri);
 		await client.connect();
@@ -46,6 +58,17 @@ function myDB() {
 		const jobposts = db.collection("jobposts");
 		return await jobposts.insert(post);
 	};
+
+	myDB.createPL = async (post) => {
+		console.log("created post:", post);
+		const client = new MongoClient(uri);
+		await client.connect();
+		const db = client.db("apartments");
+		const jobposts = db.collection("perslist");
+		return await jobposts.insert(post);
+	};
+
+
 
 	myDB.editAppPost = async (post) => {
 		console.log("created post:", post);
@@ -83,8 +106,8 @@ function myDB() {
 		console.log("Post_id", post.title);
 		const client = new MongoClient(uri);
 		await client.connect();
-		const db = client.db("jobapps");
-		const jobposts = db.collection("jobcalendar");
+		const db = client.db("apartments");
+		const jobposts = db.collection("perslist");
 		var myquery = { title: post.title };
 		console.log("jobpostquery", jobposts.find(myquery));
 		return await jobposts.deleteOne(myquery);

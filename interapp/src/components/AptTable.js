@@ -107,7 +107,7 @@ const size = [900, 300];
                         },
                         redirect: 'follow', // manual, *follow, error
                         referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-                        body: JSON.stringify({Company :post.titletextonly, Role :post.housing, Type : post.mapaddress, Stage :post.price}) // body data type must match "Content-Type" header
+                        body: JSON.stringify({Company :post.titletextonly, Role : post.titletextonly, Type : post.titletextonly, Stage : post.titletextonly}) // body data type must match "Content-Type" header
                       });
                     }
                   }

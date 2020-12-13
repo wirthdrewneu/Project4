@@ -18,34 +18,42 @@ console.log("What ahppend");
     getApt2();
     }, [])  
 
+console.log("apart", apart);
+
 
 
     return(    
      <div className = "container">
+    
+
      { apart.map (post =>         
 
           <div className="card mb-3 shadow-sm  mt-3">
             <div className="card-header">
-              <h3 className="my-0 font-weight-normal">{apart.title}</h3>
+              <h2 className="my-0 font-weight-normal">{post.title}</h2>
             </div>
             <div className="card-body">
+              <div className="form-group row">
+              <h3> Address : {post.address}  </h3>
+              </div>
+            
+              <div className="form-group row">
+              <h3> Rooms : {post.rooms}  </h3>
+              </div>
+              <div className="form-group row">
+              <h3> Price : {post.price}  </h3>
+              </div>
+              <div className="form-group row">
+              <h3> Notes : {post.notes}  </h3>
+              </div>
+
+
+             
               <form action="/updateappevent" method="Post">
               <div className="form-group row">
-                <label for="company1" className="col-3 control-label" style={{"textAlign": "left"}}>Company</label>
-                <div className="col-9">
-                  <input className="form-control" type="text"  id="company1" name="title"/>
-                </div>
-              </div>
-              <div className="form-group row">
-                <label for="appliedDate3" className="col-3 control-label" style={{"textAlign": "left"}}>Start Date</label>
-                <div className="col-9">
-                  <input className="form-control"  type="date"  id="appliedDate3" name="start" />
-                </div>
-              </div>
-              <div className="form-group row">
-                <label for="appliedDate4" className="col-3 control-label" style={{"textAlign": "left"}}>End Date</label>
-                <div className="col-9">
-                  <input className="form-control" type="date"  id="appliedDate4" name="end"  />
+                <label for="appliedDate4" className="col-4 control-label" style={{"textAlign": "left"}}>Notes</label>
+                <div className="col-12">
+                  <textarea className="form-control"  id="appliedDate4" name="end"  />
                 </div>
               </div>
               <div class="padding-std">
@@ -75,6 +83,7 @@ console.log("What ahppend");
               </div>
             </form>
           </div>
+
         </div>)}
 
 

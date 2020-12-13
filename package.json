@@ -11,11 +11,14 @@
     "heroku"
   ],
   "dependencies": {
+    "bootstrap": "^4.5.3",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
     "mongodb": "^3.6.2",
-    "morgan": "~1.9.1"
+    "morgan": "~1.9.1",
+    "react-chart-histogram": "^0.2.4",
+    "react-wordcloud": "^1.2.7"
   },
   "devDependencies": {
     "eslint": "^7.11.0",

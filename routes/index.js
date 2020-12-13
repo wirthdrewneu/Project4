@@ -10,6 +10,27 @@ router.get("/calendar", async (req, res, next) => {
 	res.json(caldata);
 });
 
+
+router.get("/plist", async (req, res, next) => {
+	const caldata = await myDB.getaptandata();
+	console.log(next);
+	res.json(caldata);
+});
+
+
+router.get("/perslist", async (req, res, next) => {
+	const caldata = await myDB.getCaldata();
+	console.log(next);
+	res.json(caldata);
+});
+
+router.post("/createPL", async (req, res) => {
+	const post = req.body;
+	await myDB.createPL(post);
+	res.send({message: "Event Created"});
+});
+
+
 router.get("/applications", async (req, res, next) => {
 	const appData = await myDB.getAppDetails();
 	console.log(next);
@@ -35,6 +56,14 @@ router.post("/createappevent", async (req, res) => {
 	await myDB.createAppEvent(post);
 	res.redirect("/");
 	res.send({message: "Event Created"});
+});
+
+
+router.post("/delappevent", async (req, res) => {
+	const post = req.body;
+	await myDB.delAppEvent(post);
+	res.redirect("/");
+	res.send({message: "Event Deleted"});
 });
 
 
