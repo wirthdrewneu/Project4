@@ -17,6 +17,13 @@ router.get("/plist", async (req, res, next) => {
 	res.json(caldata);
 });
 
+router.get("/lpage", async (req, res, next) => {
+	console.log("inside lpage exress route");
+	const caldata = await myDB.getaptandata();
+	console.log(next);
+	res.json(caldata);
+});
+
 
 router.get("/perslist", async (req, res, next) => {
 	const caldata = await myDB.getCaldata();

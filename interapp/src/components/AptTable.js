@@ -1,6 +1,5 @@
 import React, { useEffect ,useState, Component } from "react";
 import "../css/designs.css"
-import ReactWordcloud from 'react-wordcloud';
 import AptCloud from './AptCloud.js';
 
 

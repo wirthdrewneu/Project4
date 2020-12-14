@@ -18,6 +18,9 @@ function NavBar() {
 					<a className="p-2 text-dark" href="/perslist">
 						Your List
 					</a>
+					<a className="p-2 text-dark" href="/lpage">
+						Login
+					</a>
 
 					
 				</nav>

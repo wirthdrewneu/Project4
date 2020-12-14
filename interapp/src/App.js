@@ -5,6 +5,7 @@ import AptTable from "./components/AptTable.js";
 // import History from "./History.js";
 import AptCloud from './components/AptCloud.js';
 import PersCard from './components/PersCard.js';
+import Login from './components/Login.js';
 
 
 import {
@@ -41,13 +42,20 @@ function App() {
     <Router>
         <Switch>
           <Route path="/perslist">
-            <PersCard></PersCard>
+            <PersCard></PersCard> 
           </Route>
+        <Route path="/lpage">
+             <Login></Login>
+        </Route>
           <Route path="/">
              <AptCloud apartments = {apartments}/> 
             <AptTable apartments = {apartments}/>
-        
-          </Route>
+        </Route>
+
+         
+
+
+
         </Switch>
     </Router>
     
