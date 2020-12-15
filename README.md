@@ -20,6 +20,9 @@ $ yarn install
 https://johnguerra.co/classes/webDevelopment_fall_2020/
 
 ## Presentation:
+https://docs.google.com/presentation/d/1Ps0LZ6A7ioEbAqWZaTAvwxONuxrxofcVnII1OWLU7z0/edit?usp=sharing
+## Demo:
+https://drive.google.com/file/d/1TFPe4kRRG0n7MOrVxOzJz3-ach1c0H3j/view?usp=sharing
 
 ## Project Objective:
 Build a Web application using passport.
