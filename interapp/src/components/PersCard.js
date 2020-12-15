@@ -23,7 +23,7 @@ console.log("apart", apart);
 
 
     return(   
-    <main> 
+   
      <div className = "container">
     
 
@@ -92,7 +92,7 @@ console.log("apart", apart);
 
 
         </div>
-        </main>
+      
 
   );
 }

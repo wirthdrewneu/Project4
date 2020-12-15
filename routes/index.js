@@ -5,23 +5,23 @@ const myDB = require("../db/apartmentdb.js");
 
 /* GET home page. */
 router.get("/calendar", async (req, res, next) => {
-	const caldata = await myDB.getAPTdata();
+	const apdata = await myDB.getAPTdata();
 	console.log(next);
-	res.json(caldata);
+	res.json(apdata);
 });
 
 
 router.get("/plist", async (req, res, next) => {
-	const caldata = await myDB.getaptandata();
+	const apdata = await myDB.getaptandata();
 	console.log(next);
-	res.json(caldata);
+	res.json(apdata);
 });
 
 router.get("/lpage", async (req, res, next) => {
 	console.log("inside lpage exress route");
-	const caldata = await myDB.getaptandata();
+	const apdata = await myDB.getaptandata();
 	console.log(next);
-	res.json(caldata);
+	res.json(apdata);
 });
 
 
