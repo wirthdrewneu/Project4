@@ -122,7 +122,7 @@ const size = [900, 300];
 
                     }
                   }
-                  className="btn btn-lg btn-block btn-outline-danger">
+                  className="btn btn-lg btn-block btn-outline-primary">
                   Add
                 </button>
               </div>
@@ -133,7 +133,7 @@ const size = [900, 300];
   </tbody>
 
 </table>
-<div>{search}<div style={{float: "left"}}>
+<div><div style={{float: "left"}}>
 <button onClick={() => setpage(page - 1 < 0 ? 0 : page - 1)}> Prev </button>
 <button onClick={() => setpage(page + 1)}>Next</button>
 </div>

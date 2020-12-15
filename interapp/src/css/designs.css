@@ -30,78 +30,29 @@
 
 .btn-primary{
 	background-color: transparent;
-    color: #5259E4;
-    border-color: #5259E4;
+    color: #631B05;
+    border-color: #631B05;
 }
 .btn-outline-primary {
-	color: #5259E4;
-    border-color: #5259E4;
+	color: #631B05;
+    border-color: #631B05;
 }
 
 
 .btn-primary:hover, .btn-outline-primary:hover{
-	background-color: #5259E4;
-    border-color: #5259E4;
+	background-color: #631B05;
+    border-color: #631B05;
 }
 
-.p-2{
+.p-2 .text-dark{
 
-color: 	#000000;
-font-family: "Montserrat",  Arial, sans-serif;
+color: 	#000000 !important;
+font-family: "Lora",  Arial, serif;
 
-}
-
-.btn-danger{
-	background-color: transparent;
-    color: #880085;
-    border-color: #880085;
-}
-.btn-outline-danger {
-	color: #880085;
-    border-color: #880085;
-}
-.btn-danger:hover, .btn-outline-danger:hover{
-	background-color: #880085;
-    border-color: #880085;
-}
-
-.list-group-item.active, .page-item.active .page-link{
-	background-color: #5259E4;
-	border-color: #5259E4;
-	border-radius: 0px !important;
-}
-
-.list-group-item {
-	border-radius: 0px !important;
-}
-
-.list-group-item:hover {
-	border-radius: 0px !important;
-	box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2), 0px 0px 50px rgba(0, 0, 0, 0.2);
 }
 
 
 
-.page-link {
-	cursor: pointer;
-    position: relative;
-    display: block;
-    padding: .5rem .75rem;
-    margin-left: -1px;
-    line-height: 1.25;
-    color: #5259E4;
-    background-color: #fff;
-	border: 1px solid #5259E4;
-	border-radius: 0px !important;
-}
-
-.page-link:hover {
-	background-color: #fff;
-	border-color: #5259E4;
-	color: #5259E4;
-	border-radius: 0px;
-	box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2), 0px 0px 50px rgba(0, 0, 0, 0.2);
-}
 
 
 .skip-link {
@@ -127,16 +78,10 @@ z-index:100;
 	color: white;
 }
 
-.rbc-off-range a {
-	color: black !important;
-}
 
-.rbc-event{
-	background-color: #ffce90 !important;
-}
 
  h1 {
-	font-family: "Montserrat", Arial, sans-serif;
+	font-family: "Lora", Arial, serif;
 	font-size: 28px;
 	font-style: normal;
 	font-variant: normal;
@@ -148,7 +93,7 @@ z-index:100;
 
 
  h5 {
-	font-family: "Montserrat",  Arial, sans-serif;
+	font-family: "Lora",  Arial, serif;
 	font-size: 24px;
 	font-style: normal;
 	font-variant: normal;
@@ -157,7 +102,7 @@ z-index:100;
 	color: 	#000000;
 }
 h2 {
-	font-family: "Montserrat",  Arial, sans-serif;
+	font-family: "Lora",  Arial, serif;
 	font-size: 24px;
 	font-style: normal;
 	font-variant: normal;
@@ -166,7 +111,7 @@ h2 {
 	color: 	#000000;
 }
 h3 {
-	font-family: "Montserrat",  Arial, sans-serif;
+	font-family: "Lora",  Arial, serif;
 	font-size: 20px;
 	font-style: normal;
 	font-variant: normal;
@@ -175,7 +120,7 @@ h3 {
 	color: 	#000000;
 }
 p {
-	font-family: "Montserrat",  Arial, sans-serif;
+	font-family: "Lora",  Arial, serif;
 	font-size: 14px;
 	font-style: normal;
 	font-variant: normal;
@@ -183,42 +128,16 @@ p {
 	line-height: 20px;
 	color: 	#000000;
 }
-blockquote {
-	font-family: "Montserrat",  Arial, sans-serif;
-	font-size: 21px;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: 400;
-	line-height: 30px;
-	color: 	#000000;
-}
-pre {
-	font-family: "Montserrat", Arial, sans-serif;
-	font-size: 13px;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: 400;
-	line-height: 18.5714px;
-	color: 	#000000;
-}
-h6 {
-	font-family: "Montserrat", Arial, sans-serif;
-	font-size: 20px;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: 700;
-	line-height: 26.4px;
-	color: 	#000000;
-}
 
-a {
-	font-family: "Montserrat", Arial, sans-serif;
+
+a  {
+	font-family: "Lora", Arial, serif;
 	font-size: 16px;
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 700;
 	line-height: 26.4px;
-	color: 	#000000;
+	color: 	#000000 important!;
 }
 
 /*Courier New*/

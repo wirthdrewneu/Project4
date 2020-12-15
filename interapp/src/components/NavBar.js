@@ -1,7 +1,7 @@
 import React from "react";
 import "../css/designs.css";
 
-function NavBar() {
+function NavBar({user}) {
 	return (
 		<header>
 		<div className="container" id = "maincontent"> 
@@ -12,15 +12,24 @@ function NavBar() {
 				</a>
 				<h1 className="my-0 mr-md-auto font-weight-normal">JohnsList</h1>
 				<nav className="my-2 my-md-0 mr-md-3">
-					<a className="p-2 text-dark" href="/">
+				{user ? ( <div>	<a className="p-2 text-dark" href="/">
 						Apartments
 					</a>
-					<a className="p-2 text-dark" href="/perslist">
-						Your List
+					<a className="text-dark" href="/perslist">
+						{user}'s List
 					</a>
-					<a className="p-2 text-dark" href="/lpage">
+					
+              <form action = "/logout" method = "post">
+              <button type ="submit" className="
+              btn btn-lg btn-block btn-outline-primary">Log Out</button></form>
+              </div>
+              
+          ) : (
+            <a className="p-2 text-dark" href="/login">
 						Login
 					</a>
+          )}
+					
 
 					
 				</nav>

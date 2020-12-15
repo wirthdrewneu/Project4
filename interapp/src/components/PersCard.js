@@ -22,7 +22,8 @@ console.log("apart", apart);
 
 
 
-    return(    
+    return(   
+    <main> 
      <div className = "container">
     
 
@@ -80,7 +81,7 @@ console.log("apart", apart);
                       });
                     }
                   }
-                  className="btn btn-lg btn-block btn-outline-danger">
+                  className="btn btn-lg btn-block btn-outline-primary">
                   Remove
                 </button>
               </div>
@@ -91,6 +92,7 @@ console.log("apart", apart);
 
 
         </div>
+        </main>
 
   );
 }

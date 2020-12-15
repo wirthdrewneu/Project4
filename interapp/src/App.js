@@ -20,7 +20,6 @@ function App() {
 
   // const [show, setShow] = useState(true);
   const [apartments, setapartments] = useState([]);
-
   const getApt = async () => {
     console.log("getting Apartments");
     try {
@@ -36,16 +35,34 @@ function App() {
     getApt();
   }, [])  
 
+
+
+
+  const [user, setUser] = useState(null);
+
+  function getUser() {
+    fetch("/getUser")
+      .then((res) => res.json())
+      .then((_user) => {
+        if (_user.username) setUser(_user.username);
+      });
+  }
+
+  useEffect(getUser, []);
+
+
+console.log("User Name", user);
+
   return (
     <div className="App" >
-    <NavBar></NavBar>
+    <NavBar user = {user}></NavBar>
     <Router>
         <Switch>
           <Route path="/perslist">
             <PersCard></PersCard> 
           </Route>
-        <Route path="/lpage">
-             <Login></Login>
+        <Route path="/login">
+             <Login  ></Login>
         </Route>
           <Route path="/">
              <AptCloud apartments = {apartments}/> 
