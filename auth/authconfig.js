@@ -17,7 +17,7 @@ module.exports = function configurePassport(app) {
       console.log("Authenticating", username, password);
 
       try {
-        const user = await mydb.findByUsername(username);
+        const user = await findByUsername(username);
         // Didn't find the user
         if (!user) {
           console.log("User not found");
