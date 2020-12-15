@@ -3,20 +3,10 @@ const { MongoClient, ObjectId } = require("mongodb");
 function myDB() {
 	const myDB = {};
 
-	//From MongoDB atlas:
-
-	// const MongoClient = require('mongodb').MongoClient;
-	//const uri = "mongodb+srv://harman:pass@cluster0.zk2xm.mongodb.net/<dbname>?retryWrites=true&w=majority";
-	// const client = new MongoClient(uri, { useNewUrlParser: true });
-	// client.connect(err => {
-	// const collection = client.db("test").collection("devices");
-	// // perform actions on the collection object
-	// client.close();
-	// });
 
 
-	 const uri = process.env.MONGO_URL || "mongodb://localhost:27017";/*process.env.MONGO_URL || localhost:27017;*/
-	// const uri = "mongodb://harman:pass@cluster0.zk2xm.mongodb.net/test";
+	// const uri = process.env.MONGO_URL || "mongodb://localhost:27017";/*process.env.MONGO_URL || localhost:27017;*/
+	 const uri = "mongodb+srv://Test1234:Test1234@cluster0.ggwfh.mongodb.net/apartments?retryWrites=true&w=majority";
 
 	myDB.getAPTdata = async () => {
 		const client = new MongoClient(uri);

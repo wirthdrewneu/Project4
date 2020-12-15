@@ -45,27 +45,6 @@ router.post("/followpost", async (req, res) => {
 	res.send({message: "Event Created"});
 });
 
-router.get("/applications", async (req, res, next) => {
-	const appData = await myDB.getAppDetails();
-	console.log(next);
-	res.json(appData);
-});
-
-router.post("/appform", async (req, res) => {
-	const post = req.body;
-	await myDB.createAppPost(post);
-	res.redirect("/appliedHistory");
-	res.send({message: "Application Added"});
-});
-
-router.post("/updateApplication", async (req, res) => {
-	const post = req.body;
-	await myDB.editAppPost(post);
-	res.redirect("/appliedHistory");
-	res.send({message: "Application Edited"});
-});
-
-
 
 
 router.post("/delfollow", async (req, res) => {
@@ -74,14 +53,6 @@ router.post("/delfollow", async (req, res) => {
 	await myDB.delfollow(post);
 	res.redirect("/perslist");
 	res.send({message: "Event Deleted"});
-});
-
-
-
-router.post("/delAppPost", async (req, res) => {
-	const post = req.body;
-	const dbResponse = await myDB.delApplication(post);
-	res.send(dbResponse);
 });
 
 
