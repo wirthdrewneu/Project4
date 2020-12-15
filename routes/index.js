@@ -26,7 +26,7 @@ router.get("/lpage", async (req, res, next) => {
 
 
 router.get("/perslist", async (req, res, next) => {
-	const caldata = await myDB.getCaldata();
+	const caldata = await myDB.getaptandata();
 	console.log(next);
 	res.json(caldata);
 });
