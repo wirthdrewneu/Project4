@@ -22,8 +22,8 @@ https://johnguerra.co/classes/webDevelopment_fall_2020/
 ## Project Objective:
 Build a Web application using passport.
 ## Screenshots:
-![](/s1.png)
-![](/s2.png)
+![](/S1.png)
+![](/S2.png)
 
 ## Authors
 [Andrew Wirth](https://github.com/wirthdrewneu) 
